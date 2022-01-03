@@ -22,3 +22,13 @@ class BoardsViewModel {
         }
     }
 }
+
+extension BoardsViewModel {
+    var numberOfRowInSection: Int {
+        return boards.value.count
+    }
+    
+    func cellForRowAt(at indexPath: IndexPath) -> Board {
+        return boards.value[indexPath.row]
+    }
+}
