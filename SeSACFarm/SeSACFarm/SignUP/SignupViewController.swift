@@ -56,14 +56,15 @@ class SignupViewController: UIViewController {
         print(signupViewModel.username.value)
         print(signupViewModel.email.value)
         print(signupViewModel.password.value)
-        DispatchQueue.main.async {
-            //회원가입 성공 메시지 추가
-            if !self.signupViewModel.errorModel.value {
-                let vc = LoginViewController()
-                vc.title = "새싹농장 로그인하기"
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else { //회원가입 실패 경우에 대한 메시지
-                print("회원가입 실패")
+        signupViewModel.fetchSignup(username: signupViewModel.username.value, email: signupViewModel.email.value, password: signupViewModel.password.value) {
+            DispatchQueue.main.async {
+                if !self.signupViewModel.errorModel.value {
+                    let vc = LoginViewController()
+                    vc.title = "새싹농장 로그인하기"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else { //회원가입 실패 경우에 대한 메시지
+                    print("회원가입 실패")
+                }
             }
         }
     }

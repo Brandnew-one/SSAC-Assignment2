@@ -10,15 +10,16 @@ import Foundation
 class BoardsViewModel {
     
     var boards = Observable(Boards())
+    var boardsDetail = Observable(Board(id: 0, text: "", user: BoardUser(id: 0, username: "", email: "", provider: Provider.local, confirmed: false, blocked: nil, role: 0, createdAt: "", updatedAt: ""), createdAt: "", updatedAt: "", comments: []))
     
-    func fetchBoards() {
+    func fetchBoards(completion: @escaping () -> Void) {
         APIService.boards() { userData, error in
             guard let userData = userData else {
                 return
             }
 //            print(userData)
             self.boards.value = userData
-            print(userData.count)
+            completion()
         }
     }
 }

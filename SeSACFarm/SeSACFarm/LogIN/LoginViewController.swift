@@ -45,19 +45,20 @@ class LoginViewController: UIViewController {
         print("로그인중!!")
         print(loginViewModel.username.value)
         print(loginViewModel.password.value)
-        DispatchQueue.main.async {
-            self.loginViewModel.fetchAPI()
-            if !self.loginViewModel.errorModel.value {
-                //로그인을 하면 루트뷰를 아예 바꿔줌
-                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-                windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: BoardsViewController())
-                windowScene.windows.first?.makeKeyAndVisible()
-            } else { //실패한 경우 얼럿이나, 토스메시지 추가하기!
-                print("로그인 실패")
+        loginViewModel.fetchLogin(username: loginViewModel.username.value, password: loginViewModel.password.value) {
+
+            DispatchQueue.main.async {
+                if !self.loginViewModel.errorModel.value {
+                    //로그인을 하면 루트뷰를 아예 바꿔줌
+                    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                    windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: BoardsViewController())
+                    windowScene.windows.first?.makeKeyAndVisible()
+                } else { //실패한 경우 얼럿이나, 토스메시지 추가하기!
+                    print("로그인 실패")
+                }
             }
         }
     }
-    
     
     func setup() {
         view.addSubview(loginView)

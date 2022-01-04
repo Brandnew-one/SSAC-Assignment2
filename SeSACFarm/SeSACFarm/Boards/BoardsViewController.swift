@@ -12,16 +12,24 @@ class BoardsViewController: UIViewController {
     
     var boardViewModel = BoardsViewModel()
     var tableView = UITableView()
+    var addButton = UIButton()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        boardViewModel.fetchBoards {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setup()
         
-        boardViewModel.fetchBoards()
-        boardViewModel.boards.bind { board in
-            self.tableView.reloadData()
-        }
+//        boardViewModel.boards.bind { board in
+//            self.tableView.reloadData()
+//        }
+        
     }
     
     func setup() {
@@ -34,9 +42,25 @@ class BoardsViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.register(BoardsTableViewCell.self, forCellReuseIdentifier: BoardsTableViewCell.identifier)
+        
+        view.addSubview(addButton)
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+        addButton.clipsToBounds = true
+        addButton.layer.cornerRadius = 25
+        addButton.backgroundColor = .systemGreen
+        addButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-30)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-18)
+            make.height.width.equalTo(50)
+        }
     }
     
-    
+    @objc
+    func addButtonClicked() {
+        let vc = AddPostViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension BoardsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,6 +85,15 @@ extension BoardsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-
-    
+    // 디테일 들어가는 게 만약 댓글이 없다 -> Board 값 그대로 가져감
+    // 댓글 작성중에 사용자가 게실글을 변경하는 것도 반영할 수 있도록 (코멘트 조회에서 게시글 내용을 확인할 수 있으니까 but 코멘트가 없는 경우에는 게시글 내용도 나오지 않음)
+    // 디테일 들어가서 댓글 쓰는걸 누르는 순간 -> 코멘트 조회로 값을 받아올 예정
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            let vc = BoardsDetailViewController()
+            vc.boardsViewModel.boardsDetail.value = self.boardViewModel.boards.value[indexPath.row]
+            vc.title = "게시글"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
