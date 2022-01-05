@@ -40,7 +40,6 @@ class AddPostViewController: UIViewController {
     
     func setup() {
         view.addSubview(postView)
-        
         postView.snp.makeConstraints { make in
             make.top.leading.equalTo(view.safeAreaLayoutGuide).offset(18)
             make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-18)

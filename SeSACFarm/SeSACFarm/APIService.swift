@@ -445,4 +445,45 @@ class APIService {
         }.resume()
     }
     
+    static func findPost(postID: Int, completion: @escaping (Board?, APIError?) -> Void) {
+        let url = URL(string: "http://test.monocoding.com:1231/posts/\(postID)")!
+        let token = UserDefaults.standard.string(forKey: "token")!
+//        print(token)
+        var request = URLRequest(url: url)
+        request.setValue("bearer " + token, forHTTPHeaderField: "authorization")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                //옵셔널 바인딩을 통해서 nil값이 아니라는것은 오류를 의미
+                if let error = error {
+                    completion(nil, .failed)
+                    return
+                }
+                //data 가 nil 이면 오류를 의미하니까 바로 종료
+                guard let data = data else {
+                    completion(nil, .noData)
+                    return
+                }
+                
+                // URLResponse 로 캐스팅 되지 않으면 오류
+                guard let response = response as? HTTPURLResponse else {
+                    completion(nil, .failed)
+                    return
+                }
+                // 200번대 statusCode 가 아니라면 오류
+                if !(200...299).contains(response.statusCode) {
+                    completion(nil, .errorCode)
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(Board.self, from: data)
+                    completion(userData, nil)
+                } catch {
+                    completion(nil, .decodeFail)
+                }
+            }
+        }.resume()
+    }
+    
 }

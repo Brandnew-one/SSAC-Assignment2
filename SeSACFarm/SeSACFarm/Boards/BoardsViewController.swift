@@ -77,13 +77,13 @@ extension BoardsViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let row = boardViewModel.cellForRowAt(at: indexPath)
-        DispatchQueue.main.async {
-            cell.usernameLabel.text = row.user.username
-            cell.textsLabel.text = row.text
-            cell.dateLabel.text = row.createdAt
-            cell.commentLabel.text = "댓글"
-            cell.countLabel.text = "\(row.comments.count)"
-        }
+
+        cell.usernameLabel.text = row.user.username
+        cell.textsLabel.text = row.text
+        cell.dateLabel.text = row.createdAt
+        cell.commentLabel.text = "댓글"
+        cell.countLabel.text = "\(row.comments.count)"
+
         return cell
     }
     
@@ -93,7 +93,11 @@ extension BoardsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         DispatchQueue.main.async {
             let vc = BoardsDetailViewController()
-            vc.boardsViewModel.boardsDetail.value = self.boardViewModel.boards.value[indexPath.row]
+            vc.boardsDetailViewModel.postID.value = self.boardViewModel.boards.value[indexPath.row].id
+            
+//            vc.boardsViewModel.boardID.value = self.boardViewModel.boards.value[indexPath.row].id
+//            vc.boardsViewModel.boardsDetail.value = self.boardViewModel.boards.value[indexPath.row]
+            
             vc.commentViewModel.id.value = self.boardViewModel.boards.value[indexPath.row].id
             vc.title = "게시글"
             self.navigationController?.pushViewController(vc, animated: true)

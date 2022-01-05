@@ -10,7 +10,7 @@ import UIKit
 
 class BoardsDetailViewController: UIViewController {
     
-    var boardsViewModel = BoardsViewModel()
+    var boardsDetailViewModel = BoardsDetailViewModel()
     var commentViewModel = CommentViewModel()
     var deleteCommentViewModel = DeleteViewModel()
     var deletePostViewModel = DeletePostViewModel()
@@ -20,8 +20,10 @@ class BoardsDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        commentViewModel.fetchCommentFind {
-            self.tableView.reloadData()
+        boardsDetailViewModel.fetchSearchPost {
+            self.commentViewModel.fetchCommentFind {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -37,14 +39,14 @@ class BoardsDetailViewController: UIViewController {
         print("POST Modify Button Clicked")
         DispatchQueue.main.async {
             let userID = UserDefaults.standard.integer(forKey: "userID")
-            if userID != self.boardsViewModel.boardsDetail.value.user.id {
+            if userID != self.boardsDetailViewModel.boardsDetail.value.user.id {
                 self.errorAlert {
                     print("ID가 다릅니다.")
                 }
             } else {
                 self.showActionSheet {
                     print("삭제버튼 클릭")
-                    self.deletePostViewModel.postID.value = self.boardsViewModel.boardsDetail.value.id
+                    self.deletePostViewModel.postID.value = self.boardsDetailViewModel.boardsDetail.value.id
                     self.deletePostViewModel.fetchDeltePost {
                         self.navigationController?.popViewController(animated: true)
                     }
@@ -53,8 +55,8 @@ class BoardsDetailViewController: UIViewController {
                     print("수정버튼 클릭")
                     //댓글을 작성한 id 와 내 id 가 같은지 확인하는 과정이 필요!
                     let vc = CommitPostViewController()
-                    vc.commitPostViewModel.postID.value = self.boardsViewModel.boardsDetail.value.id
-                    vc.commitPostViewModel.text.value = self.boardsViewModel.boardsDetail.value.text
+                    vc.commitPostViewModel.postID.value = self.boardsDetailViewModel.boardsDetail.value.id
+                    vc.commitPostViewModel.text.value = self.boardsDetailViewModel.boardsDetail.value.text
                     vc.title = "게시글 수정"
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
@@ -95,7 +97,7 @@ class BoardsDetailViewController: UIViewController {
     func textButtonClicked() {
         let vc = AddCommentViewController()
         vc.title = "코멘트 작성"
-        vc.addCommentViewModel.postID.value = boardsViewModel.boardsDetail.value.id
+        vc.addCommentViewModel.postID.value = boardsDetailViewModel.boardsDetail.value.id
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -131,18 +133,28 @@ extension BoardsDetailViewController: UITableViewDelegate, UITableViewDataSource
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardsDetailTableViewCell.identifier, for: indexPath) as? BoardsDetailTableViewCell else {
                     return UITableViewCell()
                 }
-                cell.usernameLabel.text = boardsViewModel.boardsDetail.value.user.username
-                cell.textsLabel.text = boardsViewModel.boardsDetail.value.text
-                cell.dateLabel.text = boardsViewModel.boardsDetail.value.createdAt
+//                cell.usernameLabel.text = boardsViewModel.boardsDetail.value.user.username
+//                cell.textsLabel.text = boardsViewModel.boardsDetail.value.text
+//                cell.dateLabel.text = boardsViewModel.boardsDetail.value.createdAt
+//                cell.countLabel.text = "\(commentViewModel.comment.value.count)"
+                
+                cell.usernameLabel.text = boardsDetailViewModel.boardsDetail.value.user.username
+                cell.textsLabel.text = boardsDetailViewModel.boardsDetail.value.text
+                cell.dateLabel.text = boardsDetailViewModel.boardsDetail.value.createdAt
                 cell.countLabel.text = "\(commentViewModel.comment.value.count)"
+                
                 return cell
                 
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardsCommentTableViewCell.identifier, for: indexPath) as? BoardsCommentTableViewCell else {
                     return UITableViewCell()
                 }
-                cell.usernameLabel.text = "\(boardsViewModel.boardsDetail.value.comments[indexPath.row].id)"
-                cell.commentLabel.text = boardsViewModel.boardsDetail.value.comments[indexPath.row].comment
+//                cell.usernameLabel.text = "\(boardsViewModel.boardsDetail.value.comments[indexPath.row].id)"
+//                cell.commentLabel.text = boardsViewModel.boardsDetail.value.comments[indexPath.row].comment
+                
+                cell.usernameLabel.text = "\(boardsDetailViewModel.boardsDetail.value.comments[indexPath.row].id)"
+                cell.commentLabel.text = boardsDetailViewModel.boardsDetail.value.comments[indexPath.row].comment
+                
                 return cell
             }
         } else {
@@ -150,9 +162,14 @@ extension BoardsDetailViewController: UITableViewDelegate, UITableViewDataSource
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardsDetailTableViewCell.identifier, for: indexPath) as? BoardsDetailTableViewCell else {
                     return UITableViewCell()
                 }
-                cell.usernameLabel.text = boardsViewModel.boardsDetail.value.user.username
+//                cell.usernameLabel.text = boardsViewModel.boardsDetail.value.user.username
+//                cell.textsLabel.text = commentViewModel.comment.value.first?.post.text
+//                cell.dateLabel.text = boardsViewModel.boardsDetail.value.createdAt
+//                cell.countLabel.text = "\(commentViewModel.comment.value.count)"
+                
+                cell.usernameLabel.text = boardsDetailViewModel.boardsDetail.value.user.username
                 cell.textsLabel.text = commentViewModel.comment.value.first?.post.text
-                cell.dateLabel.text = boardsViewModel.boardsDetail.value.createdAt
+                cell.dateLabel.text = boardsDetailViewModel.boardsDetail.value.createdAt
                 cell.countLabel.text = "\(commentViewModel.comment.value.count)"
                 return cell
                 

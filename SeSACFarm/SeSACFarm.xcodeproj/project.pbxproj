@@ -37,6 +37,7 @@
 		AE9EF8E62785E901000EFE81 /* CommitPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8E52785E901000EFE81 /* CommitPostModel.swift */; };
 		AE9EF8E82785E912000EFE81 /* CommitPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8E72785E912000EFE81 /* CommitPostViewController.swift */; };
 		AE9EF8EB2785F130000EFE81 /* DeletePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8EA2785F130000EFE81 /* DeletePostViewModel.swift */; };
+		AE9EF8ED2785FA1F000EFE81 /* BoardsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8EC2785FA1F000EFE81 /* BoardsDetailViewModel.swift */; };
 		AEAE61522784B951001CAEE3 /* AddCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE61512784B951001CAEE3 /* AddCommentViewModel.swift */; };
 		AEAE61542784B960001CAEE3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE61532784B960001CAEE3 /* CommentView.swift */; };
 		AEAE61562784B96B001CAEE3 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE61552784B96B001CAEE3 /* AddCommentViewController.swift */; };
@@ -81,6 +82,7 @@
 		AE9EF8E52785E901000EFE81 /* CommitPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitPostModel.swift; sourceTree = "<group>"; };
 		AE9EF8E72785E912000EFE81 /* CommitPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitPostViewController.swift; sourceTree = "<group>"; };
 		AE9EF8EA2785F130000EFE81 /* DeletePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostViewModel.swift; sourceTree = "<group>"; };
+		AE9EF8EC2785FA1F000EFE81 /* BoardsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsDetailViewModel.swift; sourceTree = "<group>"; };
 		AEAE61512784B951001CAEE3 /* AddCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewModel.swift; sourceTree = "<group>"; };
 		AEAE61532784B960001CAEE3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		AEAE61552784B96B001CAEE3 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		AE9B7EAD278436C500E7F37E /* BoardsDetail */ = {
 			isa = PBXGroup;
 			children = (
+				AE9EF8EC2785FA1F000EFE81 /* BoardsDetailViewModel.swift */,
 				AE9B7EB0278437DC00E7F37E /* BoardsDetailTableViewCell.swift */,
 				AE9B7EB2278458D300E7F37E /* BoardsDetailViewController.swift */,
 				AE9B7EB42784595500E7F37E /* Comment */,
@@ -364,6 +367,7 @@
 				AE7DACC92782E4DF00E05F7D /* Observable.swift in Sources */,
 				AE9B7EB1278437DC00E7F37E /* BoardsDetailTableViewCell.swift in Sources */,
 				AE7DACA12782C4E900E05F7D /* AppDelegate.swift in Sources */,
+				AE9EF8ED2785FA1F000EFE81 /* BoardsDetailViewModel.swift in Sources */,
 				AE9EF8E32785DFDD000EFE81 /* DeleteViewModel.swift in Sources */,
 				AE7DACCB2782E50800E05F7D /* APIService.swift in Sources */,
 				AED05D9A2785730200882C0A /* AddCommentModel.swift in Sources */,
