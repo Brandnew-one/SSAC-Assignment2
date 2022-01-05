@@ -33,13 +33,20 @@
 		AE9B7EBD27848C7F00E7F37E /* AddPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9B7EBC27848C7F00E7F37E /* AddPostModel.swift */; };
 		AE9B7EBF27848C8E00E7F37E /* AddPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9B7EBE27848C8E00E7F37E /* AddPostViewModel.swift */; };
 		AE9B7EC127848C9B00E7F37E /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9B7EC027848C9B00E7F37E /* AddPostViewController.swift */; };
-		AEAE61502784B931001CAEE3 /* AddCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE614F2784B931001CAEE3 /* AddCommentModel.swift */; };
+		AE9EF8E32785DFDD000EFE81 /* DeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8E22785DFDD000EFE81 /* DeleteViewModel.swift */; };
+		AE9EF8E62785E901000EFE81 /* CommitPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8E52785E901000EFE81 /* CommitPostModel.swift */; };
+		AE9EF8E82785E912000EFE81 /* CommitPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8E72785E912000EFE81 /* CommitPostViewController.swift */; };
+		AE9EF8EB2785F130000EFE81 /* DeletePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF8EA2785F130000EFE81 /* DeletePostViewModel.swift */; };
 		AEAE61522784B951001CAEE3 /* AddCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE61512784B951001CAEE3 /* AddCommentViewModel.swift */; };
 		AEAE61542784B960001CAEE3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE61532784B960001CAEE3 /* CommentView.swift */; };
 		AEAE61562784B96B001CAEE3 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE61552784B96B001CAEE3 /* AddCommentViewController.swift */; };
 		AEB4E0B927833C84000D5525 /* BoardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4E0B827833C84000D5525 /* BoardsModel.swift */; };
 		AEB4E0BB27833CDE000D5525 /* BoardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4E0BA27833CDE000D5525 /* BoardsTableViewCell.swift */; };
 		AEB4E0BD27834259000D5525 /* BoardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4E0BC27834259000D5525 /* BoardsViewModel.swift */; };
+		AED05D9A2785730200882C0A /* AddCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED05D992785730200882C0A /* AddCommentModel.swift */; };
+		AED05D9D2785817B00882C0A /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED05D9C2785817B00882C0A /* Alert+Extension.swift */; };
+		AED05DA02785928600882C0A /* CommitCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED05D9F2785928600882C0A /* CommitCommentViewController.swift */; };
+		AED05DA22785A8F800882C0A /* CommitCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED05DA12785A8F800882C0A /* CommitCommentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,13 +77,20 @@
 		AE9B7EBC27848C7F00E7F37E /* AddPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostModel.swift; sourceTree = "<group>"; };
 		AE9B7EBE27848C8E00E7F37E /* AddPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewModel.swift; sourceTree = "<group>"; };
 		AE9B7EC027848C9B00E7F37E /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
-		AEAE614F2784B931001CAEE3 /* AddCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentModel.swift; sourceTree = "<group>"; };
+		AE9EF8E22785DFDD000EFE81 /* DeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewModel.swift; sourceTree = "<group>"; };
+		AE9EF8E52785E901000EFE81 /* CommitPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitPostModel.swift; sourceTree = "<group>"; };
+		AE9EF8E72785E912000EFE81 /* CommitPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitPostViewController.swift; sourceTree = "<group>"; };
+		AE9EF8EA2785F130000EFE81 /* DeletePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostViewModel.swift; sourceTree = "<group>"; };
 		AEAE61512784B951001CAEE3 /* AddCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewModel.swift; sourceTree = "<group>"; };
 		AEAE61532784B960001CAEE3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		AEAE61552784B96B001CAEE3 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 		AEB4E0B827833C84000D5525 /* BoardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsModel.swift; sourceTree = "<group>"; };
 		AEB4E0BA27833CDE000D5525 /* BoardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsTableViewCell.swift; sourceTree = "<group>"; };
 		AEB4E0BC27834259000D5525 /* BoardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsViewModel.swift; sourceTree = "<group>"; };
+		AED05D992785730200882C0A /* AddCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentModel.swift; sourceTree = "<group>"; };
+		AED05D9C2785817B00882C0A /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
+		AED05D9F2785928600882C0A /* CommitCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommentViewController.swift; sourceTree = "<group>"; };
+		AED05DA12785A8F800882C0A /* CommitCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +128,7 @@
 				AE7DACCA2782E50800E05F7D /* APIService.swift */,
 				AE7DACA02782C4E900E05F7D /* AppDelegate.swift */,
 				AE7DACA22782C4E900E05F7D /* SceneDelegate.swift */,
+				AED05D9B2785816800882C0A /* Extension */,
 				AE7DACBB2782CA6400E05F7D /* Main */,
 				AE7DACB52782C90F00E05F7D /* SignUP */,
 				AE7DACB42782C8F800E05F7D /* LogIN */,
@@ -121,6 +136,10 @@
 				AE9B7EAD278436C500E7F37E /* BoardsDetail */,
 				AE9B7EB927848C2B00E7F37E /* AddPost */,
 				AEAE614E2784B907001CAEE3 /* AddComment */,
+				AED05D9E2785926800882C0A /* CommitComment */,
+				AE9EF8E12785DFB6000EFE81 /* DeleteComment */,
+				AE9EF8E42785E606000EFE81 /* CommitPost */,
+				AE9EF8E92785F0FD000EFE81 /* DeletePost */,
 				AE7DACA92782C4EB00E05F7D /* Assets.xcassets */,
 				AE7DACAB2782C4EB00E05F7D /* LaunchScreen.storyboard */,
 				AE7DACAE2782C4EB00E05F7D /* Info.plist */,
@@ -200,15 +219,57 @@
 			path = AddPost;
 			sourceTree = "<group>";
 		};
+		AE9EF8E12785DFB6000EFE81 /* DeleteComment */ = {
+			isa = PBXGroup;
+			children = (
+				AE9EF8E22785DFDD000EFE81 /* DeleteViewModel.swift */,
+			);
+			path = DeleteComment;
+			sourceTree = "<group>";
+		};
+		AE9EF8E42785E606000EFE81 /* CommitPost */ = {
+			isa = PBXGroup;
+			children = (
+				AE9EF8E52785E901000EFE81 /* CommitPostModel.swift */,
+				AE9EF8E72785E912000EFE81 /* CommitPostViewController.swift */,
+			);
+			path = CommitPost;
+			sourceTree = "<group>";
+		};
+		AE9EF8E92785F0FD000EFE81 /* DeletePost */ = {
+			isa = PBXGroup;
+			children = (
+				AE9EF8EA2785F130000EFE81 /* DeletePostViewModel.swift */,
+			);
+			path = DeletePost;
+			sourceTree = "<group>";
+		};
 		AEAE614E2784B907001CAEE3 /* AddComment */ = {
 			isa = PBXGroup;
 			children = (
-				AEAE614F2784B931001CAEE3 /* AddCommentModel.swift */,
+				AED05D992785730200882C0A /* AddCommentModel.swift */,
 				AEAE61512784B951001CAEE3 /* AddCommentViewModel.swift */,
 				AEAE61532784B960001CAEE3 /* CommentView.swift */,
 				AEAE61552784B96B001CAEE3 /* AddCommentViewController.swift */,
 			);
 			path = AddComment;
+			sourceTree = "<group>";
+		};
+		AED05D9B2785816800882C0A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AED05D9C2785817B00882C0A /* Alert+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AED05D9E2785926800882C0A /* CommitComment */ = {
+			isa = PBXGroup;
+			children = (
+				AED05DA12785A8F800882C0A /* CommitCommentViewModel.swift */,
+				AED05D9F2785928600882C0A /* CommitCommentViewController.swift */,
+			);
+			path = CommitComment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,22 +353,27 @@
 				AE7DACD32783072E00E05F7D /* LoginModel.swift in Sources */,
 				AE7DACBA2782C97D00E05F7D /* SignupView.swift in Sources */,
 				AE7DACC72782E22100E05F7D /* SignupViewModel.swift in Sources */,
+				AED05DA02785928600882C0A /* CommitCommentViewController.swift in Sources */,
 				AE9B7EC127848C9B00E7F37E /* AddPostViewController.swift in Sources */,
 				AE9B7EB3278458D300E7F37E /* BoardsDetailViewController.swift in Sources */,
 				AEAE61542784B960001CAEE3 /* CommentView.swift in Sources */,
-				AEAE61502784B931001CAEE3 /* AddCommentModel.swift in Sources */,
 				AEB4E0BB27833CDE000D5525 /* BoardsTableViewCell.swift in Sources */,
+				AE9EF8E62785E901000EFE81 /* CommitPostModel.swift in Sources */,
 				AE7DACBD2782CA9B00E05F7D /* MainView.swift in Sources */,
 				AE9B7EB62784625E00E7F37E /* CommentModel.swift in Sources */,
 				AE7DACC92782E4DF00E05F7D /* Observable.swift in Sources */,
 				AE9B7EB1278437DC00E7F37E /* BoardsDetailTableViewCell.swift in Sources */,
 				AE7DACA12782C4E900E05F7D /* AppDelegate.swift in Sources */,
+				AE9EF8E32785DFDD000EFE81 /* DeleteViewModel.swift in Sources */,
 				AE7DACCB2782E50800E05F7D /* APIService.swift in Sources */,
+				AED05D9A2785730200882C0A /* AddCommentModel.swift in Sources */,
+				AE9EF8E82785E912000EFE81 /* CommitPostViewController.swift in Sources */,
 				AEB4E0B927833C84000D5525 /* BoardsModel.swift in Sources */,
 				AE9B7EBD27848C7F00E7F37E /* AddPostModel.swift in Sources */,
 				AE7DACA32782C4E900E05F7D /* SceneDelegate.swift in Sources */,
 				AE9B7EBB27848C5D00E7F37E /* PostView.swift in Sources */,
 				AE9B7EBF27848C8E00E7F37E /* AddPostViewModel.swift in Sources */,
+				AE9EF8EB2785F130000EFE81 /* DeletePostViewModel.swift in Sources */,
 				AE7DACCF2783071500E05F7D /* LoginViewModel.swift in Sources */,
 				AE7DACCD2783044100E05F7D /* LoginView.swift in Sources */,
 				AE9B7EB82784828100E7F37E /* CommentViewModel.swift in Sources */,
@@ -317,6 +383,8 @@
 				AE7DACD627830F1400E05F7D /* BoardsViewController.swift in Sources */,
 				AEAE61562784B96B001CAEE3 /* AddCommentViewController.swift in Sources */,
 				AE7DACBF2782D27B00E05F7D /* MainViewController.swift in Sources */,
+				AED05D9D2785817B00882C0A /* Alert+Extension.swift in Sources */,
+				AED05DA22785A8F800882C0A /* CommitCommentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

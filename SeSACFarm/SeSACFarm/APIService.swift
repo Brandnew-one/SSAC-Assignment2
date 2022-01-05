@@ -187,7 +187,262 @@ class APIService {
         }.resume()
     }
     
+    //QueryItem 사용하지 않은 상태
+    static func inquireComment(id: Int, completion: @escaping (CommentFind?, APIError?) -> Void) {
+        let url = URL(string: "http://test.monocoding.com:1231/comments?post=\(id)")!
+        let token = UserDefaults.standard.string(forKey: "token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("bearer " + token, forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                //옵셔널 바인딩을 통해서 nil값이 아니라는것은 오류를 의미
+                if let error = error {
+                    completion(nil, .failed)
+                    return
+                }
+                //data 가 nil 이면 오류를 의미하니까 바로 종료
+                guard let data = data else {
+                    completion(nil, .noData)
+                    return
+                }
+                
+                // URLResponse 로 캐스팅 되지 않으면 오류
+                guard let response = response as? HTTPURLResponse else {
+                    completion(nil, .failed)
+                    return
+                }
+                // 200번대 statusCode 가 아니라면 오류
+                if !(200...299).contains(response.statusCode) {
+                    completion(nil, .errorCode)
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(CommentFind.self, from: data)
+                    completion(userData, nil)
+                } catch {
+                    completion(nil, .decodeFail)
+                }
+            }
+        }.resume()
+    }
     
+    static func addComment(comment: String, post: Int, completion: @escaping (AddComment?, APIError?) -> Void) {
+        let url = URL(string: "http://test.monocoding.com:1231/comments")!
+        let token = UserDefaults.standard.string(forKey: "token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = "comment=\(comment)&post=\(post)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue("bearer " + token, forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                //옵셔널 바인딩을 통해서 nil값이 아니라는것은 오류를 의미
+                if let error = error {
+                    completion(nil, .failed)
+                    return
+                }
+                //data 가 nil 이면 오류를 의미하니까 바로 종료
+                guard let data = data else {
+                    completion(nil, .noData)
+                    return
+                }
+                
+                // URLResponse 로 캐스팅 되지 않으면 오류
+                guard let response = response as? HTTPURLResponse else {
+                    completion(nil, .failed)
+                    return
+                }
+                // 200번대 statusCode 가 아니라면 오류
+                if !(200...299).contains(response.statusCode) {
+                    completion(nil, .errorCode)
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(AddComment.self, from: data)
+                    completion(userData, nil)
+                } catch {
+                    completion(nil, .decodeFail)
+                }
+            }
+        }.resume()
+    }
     
+    static func commitComment(commentID: Int, postID: Int, comment: String, completion: @escaping (AddComment?, APIError?) -> Void) {
+        let url = URL(string: "http://test.monocoding.com:1231/comments/\(commentID)")!
+        let token = UserDefaults.standard.string(forKey: "token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.httpBody = "comment=\(comment)&post=\(postID)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue("bearer " + token, forHTTPHeaderField: "authorization")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") //수정은 써줘야 한다!!
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                //옵셔널 바인딩을 통해서 nil값이 아니라는것은 오류를 의미
+                if let error = error {
+                    completion(nil, .failed)
+                    return
+                }
+                //data 가 nil 이면 오류를 의미하니까 바로 종료
+                guard let data = data else {
+                    completion(nil, .noData)
+                    return
+                }
+                
+                // URLResponse 로 캐스팅 되지 않으면 오류
+                guard let response = response as? HTTPURLResponse else {
+                    completion(nil, .failed)
+                    return
+                }
+                // 200번대 statusCode 가 아니라면 오류
+                if !(200...299).contains(response.statusCode) {
+                    completion(nil, .errorCode)
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(AddComment.self, from: data)
+                    completion(userData, nil)
+                } catch {
+                    completion(nil, .decodeFail)
+                }
+            }
+        }.resume()
+    }
+    
+    static func deleteComment(commentID: Int, completion: @escaping (AddComment?, APIError?) -> Void) {
+        let url = URL(string: "http://test.monocoding.com:1231/comments/\(commentID)")!
+        let token = UserDefaults.standard.string(forKey: "token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("bearer " + token, forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                //옵셔널 바인딩을 통해서 nil값이 아니라는것은 오류를 의미
+                if let error = error {
+                    completion(nil, .failed)
+                    return
+                }
+                //data 가 nil 이면 오류를 의미하니까 바로 종료
+                guard let data = data else {
+                    completion(nil, .noData)
+                    return
+                }
+                
+                // URLResponse 로 캐스팅 되지 않으면 오류
+                guard let response = response as? HTTPURLResponse else {
+                    completion(nil, .failed)
+                    return
+                }
+                // 200번대 statusCode 가 아니라면 오류
+                if !(200...299).contains(response.statusCode) {
+                    completion(nil, .errorCode)
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(AddComment.self, from: data)
+                    completion(userData, nil)
+                } catch {
+                    completion(nil, .decodeFail)
+                }
+            }
+        }.resume()
+    }
+    
+    static func commitPost(postID: Int, text: String, completion: @escaping (Board?, APIError? ) -> Void) {
+        let url = URL(string: "http://test.monocoding.com:1231/posts/\(postID)")!
+        let token = UserDefaults.standard.string(forKey: "token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.httpBody = "text=\(text)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue("bearer " + token, forHTTPHeaderField: "authorization")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") //수정은 써줘야 한다!!
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                //옵셔널 바인딩을 통해서 nil값이 아니라는것은 오류를 의미
+                if let error = error {
+                    completion(nil, .failed)
+                    return
+                }
+                //data 가 nil 이면 오류를 의미하니까 바로 종료
+                guard let data = data else {
+                    completion(nil, .noData)
+                    return
+                }
+                
+                // URLResponse 로 캐스팅 되지 않으면 오류
+                guard let response = response as? HTTPURLResponse else {
+                    completion(nil, .failed)
+                    return
+                }
+                // 200번대 statusCode 가 아니라면 오류
+                if !(200...299).contains(response.statusCode) {
+                    completion(nil, .errorCode)
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(Board.self, from: data)
+                    completion(userData, nil)
+                } catch {
+                    completion(nil, .decodeFail)
+                }
+            }
+        }.resume()
+    }
+    
+    static func deletePost(postID: Int, completion: @escaping (Board?, APIError?) -> Void) {
+        let url = URL(string: "http://test.monocoding.com:1231/posts/\(postID)")!
+        let token = UserDefaults.standard.string(forKey: "token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("bearer " + token, forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                //옵셔널 바인딩을 통해서 nil값이 아니라는것은 오류를 의미
+                if let error = error {
+                    completion(nil, .failed)
+                    return
+                }
+                //data 가 nil 이면 오류를 의미하니까 바로 종료
+                guard let data = data else {
+                    completion(nil, .noData)
+                    return
+                }
+                
+                // URLResponse 로 캐스팅 되지 않으면 오류
+                guard let response = response as? HTTPURLResponse else {
+                    completion(nil, .failed)
+                    return
+                }
+                // 200번대 statusCode 가 아니라면 오류
+                if !(200...299).contains(response.statusCode) {
+                    completion(nil, .errorCode)
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(Board.self, from: data)
+                    completion(userData, nil)
+                } catch {
+                    completion(nil, .decodeFail)
+                }
+            }
+        }.resume()
+    }
     
 }

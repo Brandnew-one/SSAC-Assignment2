@@ -23,6 +23,7 @@ class LoginViewModel {
             print("Login Success")
 //            print(userData)
             UserDefaults.standard.set(userData.jwt, forKey: "token")
+            UserDefaults.standard.set(userData.user.id, forKey: "userID")
             completion()
         }
     }

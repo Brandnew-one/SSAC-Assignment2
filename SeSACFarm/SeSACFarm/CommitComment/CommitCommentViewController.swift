@@ -1,5 +1,5 @@
 //
-//  AddCommentViewController.swift
+//  CommitCommentViewController.swift
 //  SeSACFarm
 //
 //  Created by 신상원 on 2022/01/05.
@@ -8,9 +8,9 @@
 import SnapKit
 import UIKit
 
-class AddCommentViewController: UIViewController {
+class CommitCommentViewController: UIViewController {
     
-    var addCommentViewModel = AddCommentViewModel()
+    var commitCommentViewModel = CommitCommentViewModel()
     var commentView = CommentView()
     
     override func viewDidLoad() {
@@ -18,8 +18,13 @@ class AddCommentViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(leftBarButtonClicked))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(rightBarButtonClicked))
-        
         setup()
+        
+//        print("VC UserID: ",commitCommentViewModel.userID.value)
+//        print("VC PostID: ",commitCommentViewModel.postID.value)
+//        print("VC CommentID: ",commitCommentViewModel.commentID.value)
+//        print("VC Comment: ",commitCommentViewModel.comment.value)
+        
     }
     
     @objc
@@ -29,8 +34,8 @@ class AddCommentViewController: UIViewController {
     
     @objc
     func rightBarButtonClicked() {
-        addCommentViewModel.textComment.value = commentView.textView.text
-        addCommentViewModel.fetchAddComment(comment: addCommentViewModel.textComment.value, post: addCommentViewModel.postID.value) {
+        commitCommentViewModel.comment.value = commentView.textView.text
+        commitCommentViewModel.fetchCommitComment {
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
@@ -39,10 +44,9 @@ class AddCommentViewController: UIViewController {
     
     func setup() {
         view.addSubview(commentView)
+        commentView.textView.text = commitCommentViewModel.comment.value
         commentView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    
-    
 }

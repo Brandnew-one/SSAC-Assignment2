@@ -1,5 +1,5 @@
 //
-//  AddCommentViewController.swift
+//  CommitPostViewController.swift
 //  SeSACFarm
 //
 //  Created by 신상원 on 2022/01/05.
@@ -8,17 +8,17 @@
 import SnapKit
 import UIKit
 
-class AddCommentViewController: UIViewController {
+//Post 작성하고 view 동일하게 사용하기
+class CommitPostViewController: UIViewController {
     
-    var addCommentViewModel = AddCommentViewModel()
-    var commentView = CommentView()
+    var commitPostViewModel = CommitPostModel()
+    var postView = PostView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(leftBarButtonClicked))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(rightBarButtonClicked))
-        
+        view.backgroundColor = .white
         setup()
     }
     
@@ -29,8 +29,8 @@ class AddCommentViewController: UIViewController {
     
     @objc
     func rightBarButtonClicked() {
-        addCommentViewModel.textComment.value = commentView.textView.text
-        addCommentViewModel.fetchAddComment(comment: addCommentViewModel.textComment.value, post: addCommentViewModel.postID.value) {
+        commitPostViewModel.text.value = postView.textView.text
+        commitPostViewModel.fetchCommitPost {
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
@@ -38,11 +38,12 @@ class AddCommentViewController: UIViewController {
     }
     
     func setup() {
-        view.addSubview(commentView)
-        commentView.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        view.addSubview(postView)
+        postView.textView.text = commitPostViewModel.text.value
+        postView.snp.makeConstraints { make in
+            make.top.leading.equalTo(view.safeAreaLayoutGuide).offset(18)
+            make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-18)
         }
     }
-    
     
 }

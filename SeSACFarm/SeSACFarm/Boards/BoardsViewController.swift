@@ -24,6 +24,7 @@ class BoardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.title = "새싹농장"
         setup()
         
 //        boardViewModel.boards.bind { board in
@@ -42,6 +43,7 @@ class BoardsViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.register(BoardsTableViewCell.self, forCellReuseIdentifier: BoardsTableViewCell.identifier)
+        tableView.separatorColor = .clear
         
         view.addSubview(addButton)
         addButton.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -92,6 +94,7 @@ extension BoardsViewController: UITableViewDelegate, UITableViewDataSource {
         DispatchQueue.main.async {
             let vc = BoardsDetailViewController()
             vc.boardsViewModel.boardsDetail.value = self.boardViewModel.boards.value[indexPath.row]
+            vc.commentViewModel.id.value = self.boardViewModel.boards.value[indexPath.row].id
             vc.title = "게시글"
             self.navigationController?.pushViewController(vc, animated: true)
         }

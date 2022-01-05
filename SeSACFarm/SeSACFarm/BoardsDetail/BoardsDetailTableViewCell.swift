@@ -133,10 +133,11 @@ class BoardsCommentTableViewCell: UITableViewCell {
     
     func setupView() {
         [usernameLabel, commentLabel, modifyButton].forEach {
-            self.addSubview($0)
+            contentView.addSubview($0)
             $0.backgroundColor = .white
         }
         usernameLabel.font = .boldSystemFont(ofSize: 12)
+        commentLabel.numberOfLines = 0
         commentLabel.font = .systemFont(ofSize: 12)
         modifyButton.setImage(UIImage(systemName: "ellipsis.vertical.bubble"), for: .normal)
     }
