@@ -64,7 +64,9 @@ class SignupViewController: UIViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else { //회원가입 실패 경우에 대한 메시지
                     print("회원가입 실패")
-                    self.failAlert(text: "회원가입")
+                    self.failAlert(text: "회원가입") {
+                        print("회원가입 실패 얼럿")
+                    }
                 }
             }
         }

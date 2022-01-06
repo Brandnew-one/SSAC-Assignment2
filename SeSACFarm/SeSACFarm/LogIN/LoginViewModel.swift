@@ -18,6 +18,7 @@ class LoginViewModel {
             guard let userData = userData else {
                 print("Login 통신에 실패했읍니다.")
                 self.errorModel.value = true
+                completion()
                 return
             }
             print("Login Success")

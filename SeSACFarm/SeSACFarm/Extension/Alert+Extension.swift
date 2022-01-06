@@ -53,9 +53,11 @@ extension UIViewController {
     }
     
     //로그인실패, 회원가입 실패
-    func failAlert(text: String) {
+    func failAlert(text: String, okAction: @escaping () -> ()) {
         let alert = UIAlertController(title: "\(text)에 실패했습니다.", message: "다시 한 번 확인해주세요.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default)
+        let ok = UIAlertAction(title: "확인", style: .default) { _ in
+            okAction()
+        }
         alert.addAction(ok)
         self.present(alert,animated: true)
     }

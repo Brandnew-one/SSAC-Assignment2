@@ -20,6 +20,7 @@ class SignupViewModel {
             guard let userData = userData else {
                 print("회원가입에 실패했읍니다.")
                 self.errorModel.value = true
+                completion()
                 return
             }
             print("Signup Success")

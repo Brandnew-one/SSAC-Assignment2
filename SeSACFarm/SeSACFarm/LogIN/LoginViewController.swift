@@ -60,7 +60,9 @@ class LoginViewController: UIViewController {
                     windowScene.windows.first?.makeKeyAndVisible()
                 } else { //실패한 경우 얼럿이나, 토스메시지 추가하기!
                     print("로그인 실패")
-                    self.failAlert(text: "로그인")
+                    self.failAlert(text: "로그인") {
+                        print("로그인 실패 얼럿")
+                    }
                 }
             }
         }
