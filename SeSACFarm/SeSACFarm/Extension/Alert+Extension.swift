@@ -52,4 +52,25 @@ extension UIViewController {
         self.present(alert,animated: true)
     }
     
+    //로그인실패, 회원가입 실패
+    func failAlert(text: String) {
+        let alert = UIAlertController(title: "\(text)에 실패했습니다.", message: "다시 한 번 확인해주세요.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        self.present(alert,animated: true)
+    }
+    
+    //token 만료
+    func tokenAlert(okAction: @escaping () -> ()) {
+        let alert = UIAlertController(title: "토큰이 만료되었습니다.", message: "로그인 화면으로 이동합니다!", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) { _ in
+            okAction()
+        }
+        alert.addAction(ok)
+        self.present(alert,animated: true)
+    }
+    
 }
+
+
+

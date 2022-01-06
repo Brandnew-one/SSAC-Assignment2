@@ -7,10 +7,12 @@
 
 import Foundation
 
+//Endpoint 로 분리해서 중복 줄이기!
 enum APIError {
     case failed
     case noData
     case errorCode
+    case errorToken
     case decodeFail
 }
 
@@ -43,7 +45,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -87,7 +93,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -104,7 +114,7 @@ class APIService {
     }
     
     static func boards(completion: @escaping (Boards?,APIError?) -> Void) {
-        let url = URL(string: "http://test.monocoding.com:1231/posts")!
+        let url = URL(string: "http://test.monocoding.com:1231/posts?_sort=created_at%3Adesc")!
         let token = UserDefaults.standard.string(forKey: "token")!
 //        print(token)
         var request = URLRequest(url: url)
@@ -129,7 +139,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -172,7 +186,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -215,7 +233,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -258,7 +280,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -302,7 +328,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -344,7 +374,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -388,7 +422,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -430,7 +468,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 
@@ -471,7 +513,11 @@ class APIService {
                 }
                 // 200번대 statusCode 가 아니라면 오류
                 if !(200...299).contains(response.statusCode) {
-                    completion(nil, .errorCode)
+                    if response.statusCode == 401 {
+                        completion(nil, .errorToken)
+                    } else {
+                        completion(nil, .errorCode)
+                    }
                     return
                 }
                 

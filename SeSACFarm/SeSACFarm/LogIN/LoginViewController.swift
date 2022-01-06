@@ -18,6 +18,11 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         setup()
         
+        print(UserDefaults.standard.string(forKey: "userEmail")!)
+        
+        loginViewModel.username.value = UserDefaults.standard.string(forKey: "userEmail") ?? ""
+        loginView.nicknameTextField.text = UserDefaults.standard.string(forKey: "userEmail") ?? ""
+        
         loginViewModel.username.bind { text in
             self.loginView.nicknameTextField.text = text
         }
@@ -55,6 +60,7 @@ class LoginViewController: UIViewController {
                     windowScene.windows.first?.makeKeyAndVisible()
                 } else { //실패한 경우 얼럿이나, 토스메시지 추가하기!
                     print("로그인 실패")
+                    self.failAlert(text: "로그인")
                 }
             }
         }

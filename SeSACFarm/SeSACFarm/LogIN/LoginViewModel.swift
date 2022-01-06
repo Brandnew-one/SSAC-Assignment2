@@ -24,6 +24,7 @@ class LoginViewModel {
 //            print(userData)
             UserDefaults.standard.set(userData.jwt, forKey: "token")
             UserDefaults.standard.set(userData.user.id, forKey: "userID")
+            UserDefaults.standard.set(userData.user.email, forKey: "userEmail")
             completion()
         }
     }
