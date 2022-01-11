@@ -9,10 +9,10 @@ import Foundation
 
 class SignupViewModel {
     
-    var username = Observable("")
-    var email = Observable("")
-    var password = Observable("")
-    var errorModel = Observable(false)
+    var username = Observable2("")
+    var email = Observable2("")
+    var password = Observable2("")
+    var errorModel = Observable2(false)
     
     //초기에는 탈출클로저 없이 화면전환을 구성하고 싶었으나 실패한 상태
     func fetchSignup(username: String, email: String, password: String, completion: @escaping () -> Void) {

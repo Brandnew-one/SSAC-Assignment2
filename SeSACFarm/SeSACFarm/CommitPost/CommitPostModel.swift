@@ -9,8 +9,8 @@ import Foundation
 
 class CommitPostModel {
     
-    var postID = Observable(0)
-    var text = Observable("")
+    var postID = Observable2(0)
+    var text = Observable2("")
     
     func fetchCommitPost(completion: @escaping () -> Void) {
         APIService.commitPost(postID: postID.value, text: text.value) { board, error in

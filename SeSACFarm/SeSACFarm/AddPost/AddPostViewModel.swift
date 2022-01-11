@@ -9,7 +9,7 @@ import Foundation
 
 class AddPostViewModel {
     
-    var postText = Observable("")
+    var postText = Observable2("")
     
     //AddPost 과정 통신 값을 굳이 저장해서 우리가 사용할 필요가 없지 않을까?
     func fetchAddPost(completion: @escaping () -> Void) {

@@ -9,10 +9,10 @@ import Foundation
 
 class CommitCommentViewModel {
     
-    var userID = Observable(0)
-    var postID = Observable(0)
-    var commentID = Observable(0)
-    var comment = Observable("")
+    var userID = Observable2(0)
+    var postID = Observable2(0)
+    var commentID = Observable2(0)
+    var comment = Observable2("")
     
     func fetchCommitComment(completion: @escaping () -> Void) {
         APIService.commitComment(commentID: commentID.value, postID: postID.value, comment: comment.value) { comment, error in

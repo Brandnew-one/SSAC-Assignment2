@@ -9,9 +9,9 @@ import Foundation
 
 class LoginViewModel {
     
-    var username = Observable("")
-    var password = Observable("")
-    var errorModel = Observable(false) //화면전환을 위해서 오류 발생했는지 확인용
+    var username = Observable2("")
+    var password = Observable2("")
+    var errorModel = Observable2(false) //화면전환을 위해서 오류 발생했는지 확인용
     
     func fetchLogin(username: String, password: String, completion: @escaping () -> Void) {
         APIService.login(username: username, password: password) { userData, error in

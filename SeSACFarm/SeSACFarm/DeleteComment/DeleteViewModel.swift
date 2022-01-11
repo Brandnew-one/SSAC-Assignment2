@@ -9,7 +9,7 @@ import Foundation
 
 class DeleteViewModel {
     
-    var commentID = Observable(0)
+    var commentID = Observable2(0)
     
     func fetchDeleteComment(completion: @escaping () -> Void) {
         APIService.deleteComment(commentID: commentID.value) { comment, error in

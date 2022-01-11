@@ -51,8 +51,8 @@ class SignupView: UIView {
         confirmTextField.layer.borderWidth = 1
         confirmTextField.isSecureTextEntry = true
         
-//        signupButton.isEnabled = false
-        signupButton.backgroundColor = .systemGreen
+        signupButton.isEnabled = false
+        signupButton.backgroundColor = .systemGray
         signupButton.setTitle("가입하기", for: .disabled)
         signupButton.setTitle("시작하기", for: .normal)
     }

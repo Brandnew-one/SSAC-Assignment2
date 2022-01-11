@@ -9,8 +9,8 @@ import Foundation
 
 class AddCommentViewModel {
     
-    var textComment = Observable("")
-    var postID = Observable(0)
+    var textComment = Observable2("")
+    var postID = Observable2(0)
     
     func fetchAddComment(comment: String, post: Int, completion: @escaping () -> Void) {
         APIService.addComment(comment: comment, post: post) { comment, error in

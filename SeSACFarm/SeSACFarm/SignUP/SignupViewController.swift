@@ -5,6 +5,8 @@
 //  Created by 신상원 on 2022/01/03.
 //
 
+import RxCocoa
+import RxSwift
 import SnapKit
 import UIKit
 
@@ -12,12 +14,13 @@ class SignupViewController: UIViewController {
     
     let signupView = SignupView()
     var signupViewModel = SignupViewModel()
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setup()
-//        checkPassword()
+        bindUI()
         
         signupViewModel.username.bind { text in
             self.signupView.nicknameTextField.text = text
@@ -33,6 +36,8 @@ class SignupViewController: UIViewController {
         signupView.emailTextField.addTarget(self, action: #selector(usermailTextFieldDidChange(_:)), for: .editingChanged)
         signupView.passwordTextField.addTarget(self, action: #selector(passwordTextFieldDidChange(_:)), for: .editingChanged)
         signupView.signupButton.addTarget(self, action: #selector(signupButtonClicked), for: .touchUpInside)
+        
+                                          
     }
     
     @objc
@@ -80,14 +85,48 @@ class SignupViewController: UIViewController {
         }
     }
     
-    func checkPassword() {
-        guard let password = signupView.passwordTextField.text else { return }
-        guard let confirm = signupView.confirmTextField.text else { return }
-        if password == confirm {
-            signupView.signupButton.isEnabled = true
-        } else {
-            signupView.signupButton.isEnabled = false
+    func bindUI() {
+        
+        let emailInOb = signupView.emailTextField.rx.text.orEmpty.asObservable()
+        let passWordInOb = signupView.passwordTextField.rx.text.orEmpty.asObservable()
+        let confirmInOb =  signupView.confirmTextField.rx.text.orEmpty.asObservable()
+
+        let emailValidOb = emailInOb.map(checkEmailValid)
+        emailValidOb.subscribe { b in
+            print(b)
+        } onError: { err in
+            print("err: \(err)")
+        } onCompleted: {
+            print("completed")
+        } onDisposed: {
+            print("disposed")
+        }
+        .disposed(by: disposeBag)
+        
+        Observable.combineLatest(emailValidOb, passWordInOb, confirmInOb) { s1, s2, s3 in
+            return s1 && (s2 == s3) && (s2 != "")
+        }
+        .subscribe { b in
+            print(b)
+            if b {
+                self.signupView.signupButton.isEnabled = b
+                self.signupView.signupButton.backgroundColor = .systemGreen
+            } else {
+                self.signupView.signupButton.isEnabled = b
+                self.signupView.signupButton.backgroundColor = .systemGray
+            }
+        } onError: { err in
+            print("err : \(err.localizedDescription)")
+        } onCompleted: {
+            print("completed")
+        } onDisposed: {
+            print("disposed")
         }
     }
+    
+    func checkEmailValid(_ email: String) -> Bool {
+        return email.contains("@") && email.contains(".")
+    }
+    
     
 }

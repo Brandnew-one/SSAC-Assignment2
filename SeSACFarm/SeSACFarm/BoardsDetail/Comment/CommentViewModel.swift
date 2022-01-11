@@ -9,8 +9,8 @@ import Foundation
 
 class CommentViewModel {
     
-    var id = Observable(0)
-    var comment = Observable(CommentFind())
+    var id = Observable2(0)
+    var comment = Observable2(CommentFind())
     
     func fetchCommentFind(completion: @escaping () -> Void) {
         APIService.inquireComment(id: self.id.value) { comment, error in

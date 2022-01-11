@@ -9,8 +9,8 @@ import Foundation
 
 class BoardsDetailViewModel {
     
-    var postID = Observable(0)
-    var boardsDetail = Observable(Board(id: 0, text: "", user: BoardUser(id: 0, username: "", email: "", provider: Provider.local, confirmed: false, blocked: nil, role: 0, createdAt: "", updatedAt: ""), createdAt: "", updatedAt: "", comments: []))
+    var postID = Observable2(0)
+    var boardsDetail = Observable2(Board(id: 0, text: "", user: BoardUser(id: 0, username: "", email: "", provider: Provider.local, confirmed: false, blocked: nil, role: 0, createdAt: "", updatedAt: ""), createdAt: "", updatedAt: "", comments: []))
     
     func fetchSearchPost(completion: @escaping () -> Void) {
         APIService.findPost(postID: postID.value) { board, error in

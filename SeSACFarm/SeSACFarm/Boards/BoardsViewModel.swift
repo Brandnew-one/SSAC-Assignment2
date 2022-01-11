@@ -9,7 +9,7 @@ import UIKit
 
 class BoardsViewModel {
     
-    var boards = Observable(Boards())
+    var boards = Observable2(Boards())
     
     func fetchBoards(completion: @escaping () -> Void) {
         APIService.boards() { userData, error in

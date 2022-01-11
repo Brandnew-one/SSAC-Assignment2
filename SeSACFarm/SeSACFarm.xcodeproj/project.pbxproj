@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE3B300E278D663B002221E5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = AE3B300D278D663B002221E5 /* RxCocoa */; };
+		AE3B3010278D663B002221E5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE3B300F278D663B002221E5 /* RxSwift */; };
 		AE7DACA12782C4E900E05F7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACA02782C4E900E05F7D /* AppDelegate.swift */; };
 		AE7DACA32782C4E900E05F7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACA22782C4E900E05F7D /* SceneDelegate.swift */; };
 		AE7DACAA2782C4EB00E05F7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE7DACA92782C4EB00E05F7D /* Assets.xcassets */; };
@@ -18,7 +20,7 @@
 		AE7DACC32782DB9200E05F7D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACC22782DB9200E05F7D /* SignupViewController.swift */; };
 		AE7DACC52782E21300E05F7D /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACC42782E21300E05F7D /* SignupModel.swift */; };
 		AE7DACC72782E22100E05F7D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACC62782E22100E05F7D /* SignupViewModel.swift */; };
-		AE7DACC92782E4DF00E05F7D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACC82782E4DF00E05F7D /* Observable.swift */; };
+		AE7DACC92782E4DF00E05F7D /* Observable2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACC82782E4DF00E05F7D /* Observable2.swift */; };
 		AE7DACCB2782E50800E05F7D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACCA2782E50800E05F7D /* APIService.swift */; };
 		AE7DACCD2783044100E05F7D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACCC2783044100E05F7D /* LoginView.swift */; };
 		AE7DACCF2783071500E05F7D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACCE2783071500E05F7D /* LoginViewModel.swift */; };
@@ -63,7 +65,7 @@
 		AE7DACC22782DB9200E05F7D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		AE7DACC42782E21300E05F7D /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		AE7DACC62782E22100E05F7D /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
-		AE7DACC82782E4DF00E05F7D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		AE7DACC82782E4DF00E05F7D /* Observable2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable2.swift; sourceTree = "<group>"; };
 		AE7DACCA2782E50800E05F7D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AE7DACCC2783044100E05F7D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AE7DACCE2783071500E05F7D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -100,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3B3010278D663B002221E5 /* RxSwift in Frameworks */,
+				AE3B300E278D663B002221E5 /* RxCocoa in Frameworks */,
 				AE7DACB82782C94600E05F7D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,7 +130,7 @@
 		AE7DAC9F2782C4E900E05F7D /* SeSACFarm */ = {
 			isa = PBXGroup;
 			children = (
-				AE7DACC82782E4DF00E05F7D /* Observable.swift */,
+				AE7DACC82782E4DF00E05F7D /* Observable2.swift */,
 				AE7DACCA2782E50800E05F7D /* APIService.swift */,
 				AE7DACA02782C4E900E05F7D /* AppDelegate.swift */,
 				AE7DACA22782C4E900E05F7D /* SceneDelegate.swift */,
@@ -293,6 +297,8 @@
 			name = SeSACFarm;
 			packageProductDependencies = (
 				AE7DACB72782C94600E05F7D /* SnapKit */,
+				AE3B300D278D663B002221E5 /* RxCocoa */,
+				AE3B300F278D663B002221E5 /* RxSwift */,
 			);
 			productName = SeSACFarm;
 			productReference = AE7DAC9D2782C4E900E05F7D /* SeSACFarm.app */;
@@ -324,6 +330,7 @@
 			mainGroup = AE7DAC942782C4E900E05F7D;
 			packageReferences = (
 				AE7DACB62782C94600E05F7D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				AE3B300C278D663B002221E5 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = AE7DAC9E2782C4E900E05F7D /* Products */;
 			projectDirPath = "";
@@ -364,7 +371,7 @@
 				AE9EF8E62785E901000EFE81 /* CommitPostModel.swift in Sources */,
 				AE7DACBD2782CA9B00E05F7D /* MainView.swift in Sources */,
 				AE9B7EB62784625E00E7F37E /* CommentModel.swift in Sources */,
-				AE7DACC92782E4DF00E05F7D /* Observable.swift in Sources */,
+				AE7DACC92782E4DF00E05F7D /* Observable2.swift in Sources */,
 				AE9B7EB1278437DC00E7F37E /* BoardsDetailTableViewCell.swift in Sources */,
 				AE7DACA12782C4E900E05F7D /* AppDelegate.swift in Sources */,
 				AE9EF8ED2785FA1F000EFE81 /* BoardsDetailViewModel.swift in Sources */,
@@ -600,6 +607,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE3B300C278D663B002221E5 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		AE7DACB62782C94600E05F7D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -611,6 +626,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE3B300D278D663B002221E5 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE3B300C278D663B002221E5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		AE3B300F278D663B002221E5 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE3B300C278D663B002221E5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		AE7DACB72782C94600E05F7D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AE7DACB62782C94600E05F7D /* XCRemoteSwiftPackageReference "SnapKit" */;

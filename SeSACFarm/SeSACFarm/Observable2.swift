@@ -1,5 +1,5 @@
 //
-//  Observable.swift
+//  Observable2.swift
 //  SeSACFarm
 //
 //  Created by 신상원 on 2022/01/03.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Observable<T> {
+class Observable2<T> {
     private var listener: ((T) -> Void)?
     
     var value: T {

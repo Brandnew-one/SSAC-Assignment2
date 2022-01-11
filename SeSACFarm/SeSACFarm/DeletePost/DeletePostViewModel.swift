@@ -9,7 +9,7 @@ import Foundation
 
 class DeletePostViewModel {
     
-    var postID = Observable(0)
+    var postID = Observable2(0)
     
     func fetchDeltePost(completion: @escaping () -> Void) {
         APIService.deletePost(postID: postID.value) { board, error in
