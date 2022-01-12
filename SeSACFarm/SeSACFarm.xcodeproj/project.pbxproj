@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1CEA7A278EB3E100FAC93B /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CEA79278EB3E100FAC93B /* EndPoint.swift */; };
 		AE3B300E278D663B002221E5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = AE3B300D278D663B002221E5 /* RxCocoa */; };
 		AE3B3010278D663B002221E5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE3B300F278D663B002221E5 /* RxSwift */; };
 		AE7DACA12782C4E900E05F7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DACA02782C4E900E05F7D /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE1CEA79278EB3E100FAC93B /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		AE7DAC9D2782C4E900E05F7D /* SeSACFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7DACA02782C4E900E05F7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE7DACA22782C4E900E05F7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				AE7DACC82782E4DF00E05F7D /* Observable2.swift */,
+				AE1CEA79278EB3E100FAC93B /* EndPoint.swift */,
 				AE7DACCA2782E50800E05F7D /* APIService.swift */,
 				AE7DACA02782C4E900E05F7D /* AppDelegate.swift */,
 				AE7DACA22782C4E900E05F7D /* SceneDelegate.swift */,
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1CEA7A278EB3E100FAC93B /* EndPoint.swift in Sources */,
 				AEAE61522784B951001CAEE3 /* AddCommentViewModel.swift in Sources */,
 				AE7DACC32782DB9200E05F7D /* SignupViewController.swift in Sources */,
 				AE7DACD32783072E00E05F7D /* LoginModel.swift in Sources */,

@@ -5,6 +5,7 @@
 //  Created by 신상원 on 2022/01/03.
 //
 
+//Rx를 적용하니까 Observalbe 클래스명이 겹쳐서 급하게 바꾼 상태
 import Foundation
 
 class Observable2<T> {
