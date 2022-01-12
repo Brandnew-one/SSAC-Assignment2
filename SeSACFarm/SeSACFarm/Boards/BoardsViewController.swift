@@ -11,6 +11,7 @@ import UIKit
 class BoardsViewController: UIViewController {
     
     var boardViewModel = BoardsViewModel()
+    var refreshControl = UIRefreshControl()
     var tableView = UITableView()
     var addButton = UIButton()
     
@@ -27,10 +28,6 @@ class BoardsViewController: UIViewController {
         navigationItem.title = "새싹농장"
         setup()
         
-//        boardViewModel.boards.bind { board in
-//            self.tableView.reloadData()
-//        }
-        
     }
     
     func setup() {
@@ -43,7 +40,10 @@ class BoardsViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.register(BoardsTableViewCell.self, forCellReuseIdentifier: BoardsTableViewCell.identifier)
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .clear //줄 없애는 거
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+
         
         view.addSubview(addButton)
         addButton.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -62,6 +62,14 @@ class BoardsViewController: UIViewController {
     func addButtonClicked() {
         let vc = AddPostViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func refresh() {
+        boardViewModel.fetchBoards {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -103,4 +111,5 @@ extension BoardsViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
 }
