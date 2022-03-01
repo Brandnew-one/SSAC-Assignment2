@@ -133,10 +133,6 @@ extension BoardsDetailViewController: UITableViewDelegate, UITableViewDataSource
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardsDetailTableViewCell.identifier, for: indexPath) as? BoardsDetailTableViewCell else {
                     return UITableViewCell()
                 }
-//                cell.usernameLabel.text = boardsViewModel.boardsDetail.value.user.username
-//                cell.textsLabel.text = boardsViewModel.boardsDetail.value.text
-//                cell.dateLabel.text = boardsViewModel.boardsDetail.value.createdAt
-//                cell.countLabel.text = "\(commentViewModel.comment.value.count)"
                 
                 cell.usernameLabel.text = boardsDetailViewModel.boardsDetail.value.user.username
                 cell.textsLabel.text = boardsDetailViewModel.boardsDetail.value.text
@@ -149,8 +145,6 @@ extension BoardsDetailViewController: UITableViewDelegate, UITableViewDataSource
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardsCommentTableViewCell.identifier, for: indexPath) as? BoardsCommentTableViewCell else {
                     return UITableViewCell()
                 }
-//                cell.usernameLabel.text = "\(boardsViewModel.boardsDetail.value.comments[indexPath.row].id)"
-//                cell.commentLabel.text = boardsViewModel.boardsDetail.value.comments[indexPath.row].comment
                 
                 cell.usernameLabel.text = "\(boardsDetailViewModel.boardsDetail.value.comments[indexPath.row].id)"
                 cell.commentLabel.text = boardsDetailViewModel.boardsDetail.value.comments[indexPath.row].comment
@@ -162,10 +156,6 @@ extension BoardsDetailViewController: UITableViewDelegate, UITableViewDataSource
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardsDetailTableViewCell.identifier, for: indexPath) as? BoardsDetailTableViewCell else {
                     return UITableViewCell()
                 }
-//                cell.usernameLabel.text = boardsViewModel.boardsDetail.value.user.username
-//                cell.textsLabel.text = commentViewModel.comment.value.first?.post.text
-//                cell.dateLabel.text = boardsViewModel.boardsDetail.value.createdAt
-//                cell.countLabel.text = "\(commentViewModel.comment.value.count)"
                 
                 cell.usernameLabel.text = boardsDetailViewModel.boardsDetail.value.user.username
                 cell.textsLabel.text = commentViewModel.comment.value.first?.post.text
