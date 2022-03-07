@@ -26,16 +26,25 @@
 * Swift, UIKit, SnapKit
 > StoryBoard 를 사용하지 않고, Snapkit 을 이용해 Code-Based UI 를 사용했습니다.
 
-* Codable, URL Session
-> URL Session 을 통해 API를 이용한 CRUD를 구현했습니다.
+* Codable, URLSession
+> URLSession 을 통해 API를 이용한 CRUD를 구현했습니다.
 
 * MVVM
 > MVVM 패턴 적용을 통해 뷰모델이 재활용 될 수 있도록 노력했습니다.
 
-* RXCocoa
+* RxCocoa
 > 학습차원에서 회원가입 뷰에 Rx 를 적용시켰습니다.
 
+<br>
+
 ***
+
+## 😤 회고
+
+처음으로 `MVVM패턴`, `CodeBased-UI` 를 적용시켰다. 지금까지 StoryBoard로 레이아웃을 잡는게 편했는데 확실히 이번 프로젝트를 하면서 코드로 레이아웃을 잡는게 익숙해졌고 오히려 편해졌다.
+
+MVVM 패턴은 여전히 더 공부해야 하지만 최대한 재사용 가능한 View, ViewModel을 만들어서 코드 중복을 줄일 수 있는 방향으로 설계해야 함을 깨달았다. 
+
 
 ## 📱 시연영상
 
@@ -46,12 +55,4 @@
 | 게시판 및 댓그 작성  | 게시글 작성 및 수정  | 
 | --- | --- |
 | ![ 보드](https://user-images.githubusercontent.com/88618825/152643201-c15ff236-4d6f-45eb-a609-3ebc2016dc80.gif)  | ![게시글 작성](https://user-images.githubusercontent.com/88618825/152643589-3d45ff03-9c9c-4673-bfef-b36bf5896800.gif) |
-
-<br>
-
-***
-
-## 😤 회고
-
-개발기간이 2주였지만 사실상 거의 일주일에 급하게 구현했다.
 
